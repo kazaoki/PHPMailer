@@ -47,6 +47,13 @@ class PHPMailer
     public $CharSet = 'iso-8859-1';
 
     /**
+     * The character set of the message for mail header.
+     *
+     * @var string
+     */
+    public $CharSetForHeader = null;
+
+    /**
      * The MIME Content-type of the message.
      *
      * @var string
@@ -2366,7 +2373,7 @@ class PHPMailer
                 break;
             default:
                 // Catches case 'plain': and case '':
-                $result .= $this->textLine('Content-Type: ' . $this->ContentType . '; charset=' . $this->CharSet);
+                $result .= $this->textLine('Content-Type: ' . $this->ContentType . '; charset=' . $this->CharSetForHeader ?? $this->CharSet);
                 $ismultipart = false;
                 break;
         }
