@@ -2373,7 +2373,7 @@ class PHPMailer
                 break;
             default:
                 // Catches case 'plain': and case '':
-                $result .= $this->textLine('Content-Type: ' . $this->ContentType . '; charset=' . $this->CharSetForHeader ? $this->CharSetForHeader : $this->CharSet);
+                $result .= $this->textLine('Content-Type: ' . $this->ContentType . '; charset=' . ($this->CharSetForHeader ? $this->CharSetForHeader : $this->CharSet));
                 $ismultipart = false;
                 break;
         }
