@@ -2675,7 +2675,7 @@ class PHPMailer
             $encoding = $this->Encoding;
         }
         $result .= $this->textLine('--' . $boundary);
-        $result .= sprintf('Content-Type: %s; charset=%s', $contentType, $charSet);
+        $result .= sprintf('Content-Type: %s; charset=%s', $contentType, ($this->CharSetForHeader ? $this->CharSetForHeader : $this->CharSet));
         $result .= static::$LE;
         // RFC1341 part 5 says 7bit is assumed if not specified
         if ('7bit' != $encoding) {
